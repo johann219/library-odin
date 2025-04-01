@@ -1,5 +1,35 @@
-*,
-*::after,
-*::before {
-    box-sizing: border-box;
+@import url(modern-normalize.css);
+
+:root {
+  line-height: 1.5;
+}
+
+* {
+  margin: 0;
+}
+
+ol[role="list"], ul[role="list"] {
+  list-style: none;
+  padding-inline: 0;
+}
+
+h1, h2, h3, h4, h5 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+
+header,
+footer {
+    background-color: deepskyblue;
+    min-height: 1rem;
+}
+
+main {
+    flex: 1;
+    background-color: red;
 }

@@ -77,6 +77,45 @@ h1 {
 
 .card {
     background-color: var(--light-gray);
+    font-size: 0.8rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    margin: 8px;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.spell-control,
+.spell-components {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.card-text,
+.card-footer {
+    margin: 0 30px 30px 30px;
+}
+
+.card-text {
+    flex: 1;
+}
+
+.spell-name {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.spell-school,
+.spell-level {
+    font-size: 0.6rem;
 }
 
 .red {
@@ -93,4 +132,16 @@ h1 {
 
 .yellow {
     border: 12px solid var(--mustard-gold);
+}
+
+.spell-status,
+.spell-delete,
+.component-placeholder {
+    border: 1px solid black;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

@@ -1,40 +1,71 @@
 const spellbook = [];
 
-const SpellComponents = function (isVerbal, isSomatic, isMaterial) {
-    if(!new.target) {
-        throw Error ("Need 'new' keyword to call a constructor");
-    }
-    
-    this.verbal = isVerbal;
-    this.somatic = isSomatic;
-    this.material = isMaterial;
-};
+const SpellStats = function (
+    spellRange = null,
+    spellArea = null,
+    spellTarget = null,
+    spellSaving = null,
+    spellDuration = null) {
+        if(!new.target) {
+            throw Error ("Need 'new' keyword to call a constructor");
+        }
 
+        this.spellRange = spellRange;
+        this.spellArea = spellArea;
+        this.spellTarget = spellTarget;
+        this.spellSaving = spellSaving;
+        this.spellDuration = spellDuration;
+}
 
-const Spell = function (spellName, spellDesc, spellSchool, spellLevel, spellComponents, spellKnown, spellDuration) {
-    if(!new.target) {
-        throw Error ("Need 'new' keyword to call a constructor");
-    }
+const Spell = function (
+    spellName, 
+    spellType,
+    spellLevel,
+    spellTraits,
+    spellTraditions,
+    spellCast,
+    spellStats,
+    spellDescription,
+    spellHeightened,
+    spellKnown = false) {
+        if(!new.target) {
+            throw Error ("Need 'new' keyword to call a constructor");
+        }
 
-    this.spellName = spellName;
-    this.spellDesc = spellDesc;
-    this.spellSchool = spellSchool;
-    this.spellLevel = spellLevel;
-    this.spellKnown = spellKnown;
-    
-    this.spellComponents = new SpellComponents(spellComponents.isVerbal, spellComponents.isSomatic, spellComponents.isMaterial);
+        this.spellName = spellName;
+        this.spellType = spellType;
+        this.spellLevel = spellLevel;
+        this.spellTraits = spellTraits.slice();
+        this.spellTraditions = spellTraditions.slice();
+        this.spellCast = spellCast.slice();
+        
+        this.spellStats = new SpellStats(
+            spellStats.spellRange,
+            spellStats.spellArea,
+            spellStats.spellTarget,
+            spellStats.spellSaving,
+            spellStats.spellDuration,
+        );
+        
+        this.spellDescription = spellDescription;
+        this.spellHeightened = spellHeightened;
+        this.spellKnown = spellKnown;
 }
 
 const fireball = new Spell (
     'Fireball',
-    'Summon a flaming ball that deals 6d6 fire damage in 6 foot radius',
-    'Arcane',
+    'Spell',
     '4',
+    ['evocation', 'fire'],
+    ['arcane', 'primal'],
+    [2, 'verbal', 'somatic'],
     {
-        isVerbal: true,
-        isSomatic: true,
-        isMaterial: false
+        spellRange: '500 feet',
+        spellArea: '20-foot burst',
+        spellSaving: 'basic Reflex',
     },
+    'A roaring blast of fire detonates at a spot you designate, dealing 6d6 fire damage.',
+    'Heightened (+1) The damage increases by 2d6.',
     false
 );
 

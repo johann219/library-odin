@@ -109,7 +109,7 @@ h1 {
 }
 
 .spell-name,
-.spell-level,
+.spell-spec,
 .spell-trait {
     text-transform: uppercase;
     font-weight: bold;

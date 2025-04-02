@@ -31,11 +31,10 @@ img, picture, video, canvas, svg {
     --neutral-dark-gray: #242424;
     --medium-slate-gray: #3a3a4a;
     --darker-slate-gray: #2d2d3d;
-    --blood-red: #5e1a1a;
-    --deep-emerald: #1a3a2a;
-    --midnight-blue: #1a2a3a;
-    --mustard-gold: #4a3a1a;
     --light-gray: #e0e0e0;
+    --pale-gold: #fdde6c;
+    --burnt-crimson: #570f14;
+    --warm-alabaster: #eee7dd;
 }
 
 body {
@@ -69,27 +68,44 @@ h1 {
     width: 100%;
     background-color: var(--medium-slate-gray);
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 400px));
-    padding: 40px 0;
-    gap: 40px;
-    justify-content: space-evenly;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    grid-auto-rows: minmax(1fr, auto);
+    justify-items: center;
+    padding: 2rem;
+    gap: 2rem;
 }
 
 .card {
-    background-color: var(--light-gray);
+    background-color: var(--warm-alabaster);
     font-size: 0.8rem;
     display: flex;
     flex-direction: column;
+    border: 4px solid var(--burnt-crimson);
+    max-width: 20rem;
+    max-height: 30rem;
 }
 
 .card-header {
-    font-size: 1rem;
+    font-size: 1.2rem;
     display: flex;
     justify-content: space-between;
+    border-bottom: 2px solid var(--medium-slate-gray);
+    margin: 0.55rem 0.8rem 0.25rem 0.8rem;
+    align-items: center;
 }
 
 .card-info {
     flex: 1;
+    margin: 0 0.8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+}
+
+.spell-stats {
+    border-bottom: 2px solid var(--medium-slate-gray);
+    padding-bottom: 0.25rem;
+    margin-bottom: 0.25rem;
 }
 
 .spell-name,
@@ -99,16 +115,26 @@ h1 {
     font-weight: bold;
 }
 
+.spell-name {
+    max-width: 40%;
+}
+
 .traits-wrapper {
     display: flex;
+    gap: 0.1rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.25rem;
+}
+
+.card-footer p {
+    text-align: center;
 }
 
 .spell-trait {
-    color: #fff;
-    background-color: #531004;
-    border: 2px solid #d5c489;
-    margin: 2px;
-    padding: 0 8px;
+    color: var(--warm-alabaster);
+    background-color: var(--burnt-crimson);
+    border: 4px solid var(--pale-gold);
+    padding: 0.1em 0.8em;
 }
 
 .stat {

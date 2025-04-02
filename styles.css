@@ -2,7 +2,7 @@
 
 :root {
   line-height: 1.5;
-  font-size: clamp(1rem, 0.75rem + 1.5vw, 2rem);
+  font-size: clamp(1rem, 0.75rem + 1.5vw, 1.5rem);
 }
 
 * {
@@ -83,39 +83,36 @@ h1 {
 }
 
 .card-header {
-    display: flex;
-    justify-content: space-between;
-    margin: 8px;
-}
-
-.card-footer {
+    font-size: 1rem;
     display: flex;
     justify-content: space-between;
 }
 
-.spell-control,
-.spell-components {
-    display: flex;
-    gap: 0.5rem;
-}
-
-.card-text,
-.card-footer {
-    margin: 0 30px 30px 30px;
-}
-
-.card-text {
+.card-info {
     flex: 1;
 }
 
-.spell-name {
-    font-size: 1rem;
+.spell-name,
+.spell-level,
+.spell-trait {
+    text-transform: uppercase;
     font-weight: bold;
 }
 
-.spell-school,
-.spell-level {
-    font-size: 0.6rem;
+.traits-wrapper {
+    display: flex;
+}
+
+.spell-trait {
+    color: #fff;
+    background-color: #531004;
+    border: 2px solid #d5c489;
+    margin: 2px;
+    padding: 0 8px;
+}
+
+.stat {
+    font-weight: bold;
 }
 
 .red {
@@ -132,16 +129,4 @@ h1 {
 
 .yellow {
     border: 12px solid var(--mustard-gold);
-}
-
-.spell-status,
-.spell-delete,
-.component-placeholder {
-    border: 1px solid black;
-    width: 1rem;
-    height: 1rem;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }

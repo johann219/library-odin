@@ -11,7 +11,7 @@ const SpellComponents = function (isVerbal, isSomatic, isMaterial) {
 };
 
 
-const Spell = function (spellName, spellDesc, spellSchool, spellLevel, spellComponents, spellKnown) {
+const Spell = function (spellName, spellDesc, spellSchool, spellLevel, spellComponents, spellKnown, spellDuration) {
     if(!new.target) {
         throw Error ("Need 'new' keyword to call a constructor");
     }

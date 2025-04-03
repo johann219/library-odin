@@ -119,7 +119,7 @@ h1 {
     max-width: 40%;
 }
 
-.traits-wrapper {
+.spell-traits-wrapper {
     display: flex;
     gap: 0.1rem;
     flex-wrap: wrap;
@@ -137,22 +137,6 @@ h1 {
     padding: 0.1em 0.8em;
 }
 
-.stat {
+.stat-name {
     font-weight: bold;
-}
-
-.red {
-    border: 12px solid var(--blood-red);
-}
-
-.green {
-    border: 12px solid var(--deep-emerald);
-}
-
-.blue {
-    border: 12px solid var(--midnight-blue);
-}
-
-.yellow {
-    border: 12px solid var(--mustard-gold);
 }

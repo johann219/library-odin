@@ -10,8 +10,98 @@
 <body>
     <header>
         <h1>This will be a spell book</h1> 
+        <button class="form-open">Open Form</button>
     </header>
     <main>
+        <div class="form-modal">
+            <form action="">
+                <div class="form-group">
+                    <label for="spell-name">Spell Name:</label>
+                    <input type="text" id="spell-name" required>
+                </div>
+                <div class="form-group">
+                    <p>Spell Type:</p>
+                    <div>
+                        <input type="radio" id="spell-type-spell" name="spell-type" value="spell" checked>
+                        <label for="spell-type-spell">Spell</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="spell-type-cantrip" name="spell-type" value="cantrip">
+                        <label for="spell-type-cantrip">Cantrip</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="spell-type-ritual" name="spell-type" value="ritual">
+                        <label for="spell-type-ritual">Ritual</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="spell-type-focus" name="spell-type" value="focus">
+                        <label for="spell-type-focus">Focus</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="spell-level">Spell Level:</label>
+                    <input type="tel" id="spell-level" required>
+                </div>
+                <div class="form-group">
+                    <label for="spell-traits">Spell Traits:</label>
+                    <input type="text" id="spell-traits" required>
+                </div>
+                <div class="form-group">
+                    <p>Spell Traditions:</p>
+                    <div>
+                        <input type="checkbox" id="spell-tradition-arcane" name="tradition-arcane" value="arcane">
+                        <label for="spell-tradition-arcane">Arcane</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="spell-tradition-primal" name="tradition-primal" value="primal">
+                        <label for="spell-tradition-primal">Primal</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="spell-tradition-occult" name="tradition-occult" value="occult">
+                        <label for="spell-tradition-occult">Occult</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="spell-tradition-divine" name="tradition-divine" value="divine">
+                        <label for="spell-tradition-divine">Divine</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="spell-cast">Spell Cast:</label>
+                    <input type="text" id="spell-cast" required>
+                </div>
+                <div class="form-group">
+                    <label for="spell-range">Spell Range:</label>
+                    <input type="text" id="spell-range">
+                </div>
+                <div class="form-group">
+                    <label for="spell-area">Spell Area:</label>
+                    <input type="text" id="spell-area">
+                </div>
+                <div class="form-group">
+                    <label for="spell-target">Spell Target:</label>
+                    <input type="text" id="spell-target">
+                </div>
+                <div class="form-group">
+                    <label for="spell-saving">Spell Saving:</label>
+                    <input type="text" id="spell-saving">
+                </div>
+                <div class="form-group">
+                    <label for="spell-duration">Spell Duration:</label>
+                    <input type="text" id="spell-duration">
+                </div>
+                <div class="form-group">
+                    <textarea name="spell-description" id="spell-description"></textarea>
+                </div>
+                <div class="form-group">
+                    <textarea name="spell-heightened" id="spell-heightened"></textarea>
+                </div>
+                <div class="form-group">
+                    <input type="checkbox" id="spell-known">
+                    <label for="spell-known">Spell Known?</label>
+                </div>
+                <button type="button" class="create-card">Create Card</button>
+            </form>
+        </div>
         <div class="content-container">
             <template class="card-template">
                 <div class="card">

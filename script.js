@@ -101,8 +101,6 @@ const longstrider = new Spell (
     false
 );
 
-console.log(fireball);
-
 const template = document.querySelector('template');
 const container = document.querySelector('.content-container');
 
@@ -171,7 +169,14 @@ const createSpellDuration = (spell,card) => {
 
 const createSpellDescription = (spell, card) => card.querySelector('.spell-description').textContent = `${spell.spellDescription}`;
 
-const createSpellHeightened = (spell, card) => card.querySelector('.spell-heightened .stat-value').textContent = `${spell.spellHeightened}`;
+const createSpellHeightened = (spell, card) => {
+    
+    if (spell.spellHeightened === '') {
+        card.querySelector('.spell-heightened .stat-value').remove();
+        return;
+    }
+    card.querySelector('.spell-heightened .stat-value').textContent = `${spell.spellHeightened}`
+};
 
 const createCardFromSpell = (spell, card) => {
     createSpellHeader(spell,card);
@@ -193,8 +198,6 @@ spellBook.push(fireball);
 spellBook.push(electricArc);
 spellBook.push(longstrider);
 
-console.log(spellBook);
-
 const renderSpellBook = (spellBook) => {
     const spellBookElement = new DocumentFragment();
 
@@ -206,7 +209,107 @@ const renderSpellBook = (spellBook) => {
     container.append(spellBookElement);
 };
 
+const renderSpell = (spell) => {
+    const card = template.content.cloneNode(true);
+    container.append(createCardFromSpell(spell, card));
+};
+
 renderSpellBook(spellBook);
+
+const formModal = document.querySelector('.form-modal');
+const formOpen = document.querySelector('.form-open');
+
+const openModal = () => {
+    formModal.style.display = 'block';
+};
+
+const closeModal = () => {
+    formModal.style.display = 'none';
+};
+
+formOpen.addEventListener('click', () => {
+    openModal();
+});
+
+window.addEventListener('click', (event) => {
+    if (event.target === formModal) {
+        closeModal();
+    }
+});
+
+const createCardBtn = document.querySelector('.create-card');
+
+const radioInputs = document.querySelectorAll('input[type="radio"]');
+
+radioInputs.forEach((radio) => {
+    radio.addEventListener('change', (event) => {
+        document.querySelector('[checked]').removeAttribute('checked');
+        event.target.setAttribute('checked', '');
+    });
+});
+
+const checkboxInputs = document.querySelectorAll('input[type="checkbox"]');
+
+checkboxInputs.forEach((checkbox) => {
+    checkbox.addEventListener('change', (event) => {
+        if (event.target.hasAttribute('checked')) {
+            event.target.removeAttribute('checked');
+        } else {
+            event.target.setAttribute('checked', '');
+        }
+    });
+});
+
+const createSpellObjectFromForm = () => {
+    const spellName = document.querySelector('#spell-name').value;
+    const spellType = document.querySelector('input[type="radio"][checked]').value;
+    const spellLevel = document.querySelector('#spell-level').value;
+    const spellTraits = document.querySelector('#spell-traits').value.split(' ');
+
+    const spellTraditions = [];
+    document.querySelectorAll('input[type="checkbox"][checked]').forEach((check) => spellTraditions.push(check.value));
+
+    const spellCast = document.querySelector('#spell-cast').value.split(' ');
+    const spellRange = document.querySelector('#spell-range').value === '' ? null : document.querySelector('#spell-range').value;
+    const spellArea = document.querySelector('#spell-area').value === '' ? null : document.querySelector('#spell-area').value;
+    const spellTarget = document.querySelector('#spell-target').value === '' ? null: document.querySelector('#spell-target').value;
+    const spellSaving = document.querySelector('#spell-saving').value === '' ? null: document.querySelector('#spell-saving').value;
+    const spellDuration = document.querySelector('#spell-duration').value === '' ? null: document.querySelector('#spell-duration').value;
+    const spellDescription = document.querySelector('#spell-description').value;
+    const spellHeightened = document.querySelector('#spell-heightened').value;
+    const spellKnown = document.querySelector('#spell-known').hasAttribute('checked');
+    
+    console.log(spellHeightened);
+
+    const newSpell = new Spell (
+        spellName, 
+        spellType,
+        spellLevel,
+        spellTraits,
+        spellTraditions,
+        spellCast,
+        {
+            spellRange,
+            spellArea,
+            spellTarget,
+            spellSaving,
+            spellDuration
+        },
+        spellDescription,
+        spellHeightened,
+        spellKnown
+    );
+
+    console.log(newSpell);
+
+    spellBook.push(newSpell);
+
+    renderSpell(newSpell);
+
+    closeModal();
+};
+
+createCardBtn.addEventListener('click', createSpellObjectFromForm);
 
 // const spellNameElement = clone.querySelector('.spell-name');
 // const spellSpecElement = clone.querySelector('.spell-spec');

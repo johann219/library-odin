@@ -63,7 +63,7 @@ h1 {
     font-size: 1.5rem;
 }
 
-.content-container {
+.card-container {
     max-width: 1400px;
     width: 100%;
     background-color: var(--medium-slate-gray);

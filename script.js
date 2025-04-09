@@ -172,7 +172,7 @@ const createSpellDescription = (spell, card) => card.querySelector('.spell-descr
 const createSpellHeightened = (spell, card) => {
     
     if (spell.spellHeightened === '') {
-        card.querySelector('.spell-heightened .stat-value').remove();
+        card.querySelector('.spell-heightened').remove();
         return;
     }
     card.querySelector('.spell-heightened .stat-value').textContent = `${spell.spellHeightened}`

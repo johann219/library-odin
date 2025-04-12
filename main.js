@@ -10,6 +10,8 @@ spellBook.push(longstrider);
 
 const cardContainer = document.querySelector('.card-container');
 
+
+
 renderSpellBook(spellBook, cardContainer);
 
 formOpenBtn.addEventListener('click', () => {
@@ -30,3 +32,33 @@ const addNewSpell = () => {
 };
 
 createCardBtn.addEventListener('click', addNewSpell);
+
+const spellKnownBtns = document.querySelectorAll('.spell-known');
+const spellDeleteBtns = document.querySelectorAll('.spell-delete');
+
+const changeSpellStatus = (e) => {
+    const spellCard = e.target.closest('.card');
+    const spellObject = spellBook.find((spell) => spell.spellID === spellCard.querySelector('.spell-id').textContent);
+
+    if (spellObject.spellKnown) {
+        spellObject.spellKnown = false;
+        spellCard.querySelector('.spell-known').textContent = 'Learn spell';
+        spellCard.classList.remove('known');
+    } else {
+        spellObject.spellKnown = true;
+        spellCard.querySelector('.spell-known').textContent = 'Forget spell';
+        spellCard.classList.add('known');
+    }
+};
+
+const deleteSpell = (e) => {
+    const spellCard = e.target.closest('.card');
+    const spellObject = spellBook.find((spell) => spell.spellID === spellCard.querySelector('.spell-id').textContent);
+
+    spellBook.splice(spellBook.indexOf(spellObject), 1);
+    spellCard.remove();
+};
+
+spellKnownBtns.forEach((btn) => btn.addEventListener('click', changeSpellStatus));
+
+spellDeleteBtns.forEach((btn) => btn.addEventListener('click', deleteSpell));

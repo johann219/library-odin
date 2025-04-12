@@ -83,6 +83,7 @@ const createSpellID = (spell, card) => {
     spell.spellID = spellID;
     card.querySelector('.spell-id').textContent = spellID;
 }
+
 const createCardElements = (spell, card) => {
     createSpellNameElement(spell,card);
     createSpellLevelElement(spell,card);

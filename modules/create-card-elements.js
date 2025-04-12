@@ -78,6 +78,11 @@ const createSpellKnownStatus = (spell, card) => {
     }
 };
 
+const createSpellID = (spell, card) => {
+    const spellID = `${spell.spellName.split(' ').join('').toLowerCase()}_${spell.spellType.toLowerCase()}_${spell.spellLevel}_${crypto.randomUUID().slice(-12)}`;
+    spell.spellID = spellID;
+    card.querySelector('.spell-id').textContent = spellID;
+}
 const createCardElements = (spell, card) => {
     createSpellNameElement(spell,card);
     createSpellLevelElement(spell,card);
@@ -92,6 +97,7 @@ const createCardElements = (spell, card) => {
     createSpellDescriptionElement(spell, card);
     createSpellHeightenedElement(spell, card);
     createSpellKnownStatus(spell, card);
+    createSpellID(spell, card);
     return card;
 };
 

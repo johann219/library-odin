@@ -71,6 +71,13 @@ const createSpellHeightenedElement = (spell, card) => {
     card.querySelector('.spell-heightened .stat-value').textContent = `${spell.spellHeightened}`
 };
 
+const createSpellKnownStatus = (spell, card) => {
+    if (spell.spellKnown) {
+        card.querySelector('.card').classList.add('known');
+        card.querySelector('.spell-known').textContent = 'Forget spell';
+    }
+};
+
 const createCardElements = (spell, card) => {
     createSpellNameElement(spell,card);
     createSpellLevelElement(spell,card);
@@ -84,7 +91,7 @@ const createCardElements = (spell, card) => {
     createSpellDurationElement(spell, card);
     createSpellDescriptionElement(spell, card);
     createSpellHeightenedElement(spell, card);
-    
+    createSpellKnownStatus(spell, card);
     return card;
 };
 

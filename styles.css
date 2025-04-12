@@ -83,6 +83,10 @@ h1 {
     min-height: 27.5rem;
 }
 
+.card.known {
+    border: 6px solid #3a0a0d;
+}
+
 .card-header {
     font-size: 1.2rem;
     display: flex;
@@ -124,10 +128,6 @@ h1 {
     margin-bottom: 0.25rem;
 }
 
-.card-footer p {
-    text-align: center;
-}
-
 .spell-trait {
     color: var(--warm-alabaster);
     background-color: var(--burnt-crimson);
@@ -137,6 +137,32 @@ h1 {
 
 .stat-name {
     font-weight: bold;
+}
+
+.card-footer {
+    display: flex;
+    flex-direction: column;
+    padding: 0.8rem;
+    gap: 0.2rem;
+}
+
+.card-footer button {
+    text-align: center;
+    background-color: #e0d8ce;
+    border: 1px solid #c4bbb0;
+}
+
+.card-footer button:hover {
+    background-color: #d2c9be;
+}
+
+.card-footer button:active {
+    background-color: #b8aea2;
+    transform: scale(0.98);
+}
+
+.card-id {
+    display: none;
 }
 
 .form-modal {

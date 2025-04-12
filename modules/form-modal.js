@@ -43,7 +43,7 @@ const createSpellObjectFromForm = () => {
     const spellTraditions = [];
     formBodyElement.querySelectorAll('input[type="checkbox"][checked]').forEach((check) => spellTraditions.push(check.value));
 
-    const spellCast = formBodyElement.querySelector('#spell-cast').value.split(' ');
+    const spellCast = `${formBodyElement.querySelector('#spell-cast-actions').value} ${formBodyElement.querySelector('#spell-cast-components').value}`;
     const spellRange = formBodyElement.querySelector('#spell-range').value === '' ? null : formBodyElement.querySelector('#spell-range').value;
     const spellArea = formBodyElement.querySelector('#spell-area').value === '' ? null : formBodyElement.querySelector('#spell-area').value;
     const spellTarget = formBodyElement.querySelector('#spell-target').value === '' ? null: formBodyElement.querySelector('#spell-target').value;

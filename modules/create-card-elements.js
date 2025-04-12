@@ -18,7 +18,7 @@ const createSpellTraitsElement = (spell, card) => {
 
 const createSpellTraditionsElement = (spell, card) => card.querySelector('.spell-traditions .stat-value').textContent = ` ${spell.spellTraditions.join(' ')}`;
 
-const createSpellCastElement = (spell, card) => card.querySelector('.spell-cast .stat-value').textContent = ` ${spell.spellCast.join(' ')}`;
+const createSpellCastElement = (spell, card) => card.querySelector('.spell-cast .stat-value').textContent = ` ${spell.spellCast}`;
 
 const createSpellRangeElement = (spell,card) => {
     if (spell.spellStats.spellRange === null) {

@@ -6,7 +6,7 @@ const fireball = new Spell (
     '4',
     ['evocation', 'fire'],
     ['arcane', 'primal'],
-    [2, 'verbal', 'somatic'],
+    '2 verbal somatic',
     {
         spellRange: '500 feet',
         spellArea: '20-foot burst',
@@ -23,7 +23,7 @@ const electricArc = new Spell (
     '1',
     ['cantrip', 'concentrate', 'electricity', 'manipulate'],
     ['arcane', 'primal'],
-    [2, 'verbal', 'somatic'],
+    '2 verbal somatic',
     {
         spellRange: '30 feet',
         spellTarget: '1 or 2 creatures',
@@ -40,7 +40,7 @@ const longstrider = new Spell (
     '1',
     ['transmutation'],
     ['arcane', 'primal'],
-    [2, 'verbal', 'somatic'],
+    '2 verbal somatic',
     {
         spellDuration: '1 hour',
     },
